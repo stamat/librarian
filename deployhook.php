@@ -47,7 +47,7 @@ if ($ref !== 'refs/heads/master') {
 }
 
 $repoPath = __DIR__;
-$cmd = sprintf('git -C %s pull --rebase 2>&1', escapeshellarg($repoPath));
+$cmd = sprintf('/usr/bin/git -C %s pull --rebase 2>&1', escapeshellarg($repoPath));
 exec($cmd, $output, $return);
 
 logmsg("Cmd: {$cmd} Return: {$return} Output: ".implode("\n", $output));
