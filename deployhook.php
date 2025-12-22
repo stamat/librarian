@@ -39,6 +39,13 @@ $ref = $data['ref'] ?? '';
 $repo = $data['repository']['full_name'] ?? '';
 logmsg("Received push to {$ref} on {$repo}");
 
+if ($ref !== 'refs/heads/master') {
+    http_response_code(200);
+    echo "Ignored ref: {$ref}";
+    logmsg("Ignored ref (not master): {$ref}");
+    exit;
+}
+
 $repoPath = __DIR__;
 $cmd = sprintf('git -C %s pull --rebase 2>&1', escapeshellarg($repoPath));
 exec($cmd, $output, $return);
