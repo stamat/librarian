@@ -39,10 +39,10 @@ $ref = $data['ref'] ?? '';
 $repo = $data['repository']['full_name'] ?? '';
 logmsg("Received push to {$ref} on {$repo}");
 
-if ($ref !== 'refs/heads/master') {
+if ($ref !== 'refs/heads/main') {
     http_response_code(200);
     echo "Ignored ref: {$ref}";
-    logmsg("Ignored ref (not master): {$ref}");
+    logmsg("Ignored ref (not main): {$ref}");
     exit;
 }
 
