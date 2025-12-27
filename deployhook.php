@@ -5,7 +5,7 @@ $secret = loadini(__DIR__ . '/../.env')['GITHUB_WEBHOOK_SECRET'] ?? '';
 $signatureHeader = $_SERVER['HTTP_X_HUB_SIGNATURE_256'] ?? '';
 $event = $_SERVER['HTTP_X_GITHUB_EVENT'] ?? '';
 $payload = file_get_contents('php://input');
-$log = __DIR__ . '/deployhook.log';
+$log = __DIR__ . '/../deployhook.log';
 
 function logmsg($m){
   global $log;
