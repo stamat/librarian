@@ -46,7 +46,6 @@ if ($ref !== 'refs/heads/main') {
     exit;
 }
 
-$repoPath = __DIR__;
 $cmd = "script/deploy";
 exec($cmd, $output, $return);
 exec("script/bootstrap", $bootOutput, $bootReturn);
