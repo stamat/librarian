@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+
+npm install
+composer install --no-dev --optimize-autoloader

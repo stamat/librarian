@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+
+git pull --rebase 2>&1

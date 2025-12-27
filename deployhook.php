@@ -47,10 +47,12 @@ if ($ref !== 'refs/heads/main') {
 }
 
 $repoPath = __DIR__;
-$cmd = sprintf('/usr/bin/git -C %s pull --rebase 2>&1', escapeshellarg($repoPath));
+$cmd = "script/deploy";
 exec($cmd, $output, $return);
+exec("script/bootstrap", $bootOutput, $bootReturn);
 
 logmsg("Cmd: {$cmd} Return: {$return} Output: ".implode("\n", $output));
+logmsg("Bootstrap Return: {$bootReturn} Output: ".implode("\n", $bootOutput));
 
 if ($return === 0) {
     http_response_code(200);
